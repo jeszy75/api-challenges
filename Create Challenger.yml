@@ -1,0 +1,24 @@
+info:
+  name: Create Challenger
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{baseUrl}}/challenger"
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        const challengerId = res.getHeader("x-challenger");
+        console.log("X-Challenger: ", challengerId);
+        bru.setVar("challengerId", challengerId);
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

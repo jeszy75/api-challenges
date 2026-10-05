@@ -1,0 +1,8 @@
+name: api-challenges
+variables:
+  - name: todoId
+    value: "10"
+    description: ""
+  - name: baseUrl
+    value: https://apichallenges.com/api
+    description: ""
